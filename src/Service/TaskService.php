@@ -5,6 +5,7 @@
 
 namespace App\Service;
 
+use App\Entity\Tag;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Entity\Category;
@@ -73,7 +74,7 @@ class TaskService implements TaskServiceInterface
         );
     }
 
-      /**
+    /**
      * Get paginated list by Category.
      *
      * @param int  $page   Page number
@@ -86,6 +87,24 @@ class TaskService implements TaskServiceInterface
         
         return $this->paginator->paginate(
             $this->taskRepository->queryByCategory($category),
+            $page,
+            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
+    /**
+     * Get paginated list by Tag.
+     *
+     * @param int  $page   Page number
+     * @param Tag $tag Tag
+     * @return PaginationInterface<string, mixed> Paginated list
+     */
+    public function getPaginatedListByTag(int $page, Tag $tag): PaginationInterface {
+
+        //dd($this->taskRepository->findBy(["tag" => $tag]));
+        
+        return $this->paginator->paginate(
+            $this->taskRepository->queryByTag($tag),
             $page,
             TaskRepository::PAGINATOR_ITEMS_PER_PAGE
         );

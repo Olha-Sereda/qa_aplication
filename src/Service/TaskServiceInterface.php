@@ -5,6 +5,7 @@
 
 namespace App\Service;
 
+use App\Entity\Tag;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Entity\Category;
@@ -41,6 +42,15 @@ interface TaskServiceInterface
      * @return PaginationInterface<string, mixed> Paginated list
      */
     public function getPaginatedListByCategory(int $page, Category $category): PaginationInterface;
+
+    /**
+     * Get paginated list by Category.
+     *
+     * @param int  $page   Page number
+     * @param Tag $tag Tag
+     * @return PaginationInterface<string, mixed> Paginated list
+     */
+    public function getPaginatedListByTag(int $page, Tag $tag): PaginationInterface;
 
     /**
      * Save entity.

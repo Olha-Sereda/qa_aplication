@@ -5,6 +5,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Tag;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Entity\Category;
@@ -151,6 +152,22 @@ class TaskRepository extends ServiceEntityRepository
             ->setParameter('category', $category);
 
         return $queryBuilder;
+    }
+    
+    /**
+     * Query tasks by Tag.
+     *
+     * @param User $user User entity
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryByTag(Tag $tag): QueryBuilder
+    {
+
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.tags', 's', 'WITH', 's.id = :tag')
+            ->setParameter('tag', $tag);
+
     }
     
 }

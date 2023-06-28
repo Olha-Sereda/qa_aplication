@@ -1,24 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'title.record_view'|trans }} {{ record.id }}{% endblock %}
+{% block title %}{{ 'title.record_view'|trans }} {{ tag.id }}{% endblock %}
 
 {% block body %}
+    {% if tag is defined %}
+        <h1>{{ 'title.tag_details'|trans }}</h1>
+        <h1> {{ tag.title }}</h1>
+        {% if pagination is defined and pagination.items|length %}
 
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
 
+        {% if pagination.items|length > 0 %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'task.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'task.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for task in pagination.items %}
+                 <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.createdAt|format_date('long') }}</td>
+                    <td>{{ task.updatedAt|format_date('long') }}</td>
+                    <td>{{ task.title }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <div>{{ 'task.no_task'|trans }}</div>
+                <h1>Hello</h1>
+            {% endif %}
 
-    {% if record is defined %}
-        <h3>{{ 'label.id'|trans }}: {{ record.id }}</h3>
-        <h3>Tytuł</h3>
-        <p>{{ record.title }}</p>
-        <h3>{{ 'label.created_at'|trans }}</h3>
-        <p>{{ record.createdAt|date('Y-m-d') }}</p>
-        <h3>{{ 'label.updated_at'|trans }}</h3>
-        <p>{{ record.updatedAt|date('Y-m-d') }}</p>
-        <a href="{{ url('tag_index') }}" title="{{ 'action.back_to_list'|trans }}">
-            {{ 'action.back_to_list'|trans }}
-        </a>
-    {% else %}
-        <p>{{ 'message.record_not_exist'|trans }}</p>
+        {% else %}
+            <p>{{ 'message.record_not_exist'|trans }}</p>
+        {%  endif %}
     {%  endif %}
 
 {% endblock %}

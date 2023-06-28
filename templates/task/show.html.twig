@@ -38,12 +38,18 @@
                     {{ comment.createdAt|format_datetime('medium', 'short') }}
                 </small>
                 <p>{{ comment.content }}</p>
+                {% if comment.bestanswer is not null %}
+                    {{ 'comments.best_answer'|trans }}
+                {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <hr>
-                    <a href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'comments.action_delete'|trans }}">
+                    <a class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'comments.action_delete'|trans }}">
                         {{ 'comments.action_delete'|trans }}
                     </a>
-                    <hr>
+                    
+                    <a class="btn btn-outline-success" href="{{ url('comment_best_answer', {id: comment.id}) }}" title="{{ 'button.action_best_answer'|trans }}">
+                        {{ 'button.action_best_answer'|trans }}
+                    </a>
                 {% endif %}
             {% endfor %}
         {% else %}

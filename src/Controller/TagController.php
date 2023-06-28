@@ -5,15 +5,16 @@
 
 namespace App\Controller;
 
-use Form\Type\TagType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use App\Entity\Tag;
+use App\Form\Type\TagType;
 use App\Service\TagServiceInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\TaskServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class TagController.
@@ -27,6 +28,11 @@ class TagController extends AbstractController
     private TagServiceInterface $tagService;
 
     /**
+     * Task service.
+     */
+    private TaskServiceInterface $taskService;
+
+    /**
      * Translator.
      */
     private TranslatorInterface $translator;
@@ -34,9 +40,10 @@ class TagController extends AbstractController
     /**
      * Constructor.
      */
-    public function __construct(TagServiceInterface $tagService, TranslatorInterface $translatorInterface)
+    public function __construct(TagServiceInterface $tagService, TaskServiceInterface $taskService, TranslatorInterface $translatorInterface)
     {
         $this->tagService = $tagService;
+        $this->taskService = $taskService;
         $this->translator = $translatorInterface;
     }
 
@@ -65,9 +72,19 @@ class TagController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}', name: 'tag_show',requirements: ['id' => '[1-9]\d*'], methods: 'GET')]
-    public function show(Tag $tag): Response
+    public function show(Tag $tag, Request $request): Response
     {
-        return $this->render('tag/show.html.twig', ['record' => $tag]);
+        
+        $pagination = $this->taskService->getPaginatedListByTag(
+            $request->query->getInt('page', 1),
+            $tag
+        );
+        
+        return $this->render('tag/show.html.twig',[
+            'pagination' => $pagination,
+            'tag' => $tag
+        ]);
+       // return $this->render('tag/show.html.twig', ['record' => $tag]);
     }
 
     /**

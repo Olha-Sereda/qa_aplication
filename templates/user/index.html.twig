@@ -4,18 +4,6 @@
 
 {% block body %}
 
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ path('task_index') }}">Zadania</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ path('category_index') }}">Kategorie</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ path('tag_index') }}">Tagi</a>
-        </li>
-    </ul>
-
     <h1>{{ 'title.user_list'|trans }}</h1>
     <a href="{{ path('user_create') }}">{{ 'button.action_create'|trans }}</a>
 
@@ -48,11 +36,11 @@
                     <td>{{ user.password }}</td>
                     <td>{{ user.nickname }}</td>
                      <td>
-                        <a href="{{ url('user_show', {id: user.id}) }}" title="{{ 'action.show'|trans }}" class="btn btn-warning">
-                            {{ 'zobacz'|trans }}
+                        <a href="{{ url('user_show', {id: user.id}) }}" title="{{ 'button.action_show'|trans }}" class="btn btn-warning">
+                            {{ 'button.action_show'|trans }}
                         </a>
                         <a href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-success">
-                            {{ 'edytuj'|trans }}
+                            {{ 'button.action_edit'|trans }}
                         </a>
                     </td>
                     <td>

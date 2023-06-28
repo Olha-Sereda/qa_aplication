@@ -35,7 +35,7 @@
      private CategoryServiceInterface $categoryService;
 
      /**
-      * Category service.
+      * Task service.
       */
       private TaskServiceInterface $taskService;
  

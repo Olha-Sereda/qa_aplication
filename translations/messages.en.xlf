@@ -178,7 +178,10 @@
                 <source>action_back_to_task</source>
                 <target>Go back to task</target>
             </trans-unit>
-            
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -56,7 +56,7 @@
             </trans-unit>
             <trans-unit id="button.action_show">
                 <source>button.action_show</source>
-                <target>Podgląd</target>
+                <target>Zobacz</target>
             </trans-unit>
             <trans-unit id="button.action_create">
                 <source>button.action_create</source>
@@ -80,7 +80,7 @@
             </trans-unit>
             <trans-unit id="title.task_list">
                 <source>title.task_list</source>
-                <target>Nazwa listy</target>
+                <target>Lista pytań</target>
             </trans-unit>
             <trans-unit id="title.task_details">
                 <source>title.task_details</source>
@@ -186,7 +186,10 @@
                 <source>action_back_to_task</source>
                 <target>Wrócić do pytania</target>
             </trans-unit>
-
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
