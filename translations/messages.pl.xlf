@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Akcja</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Tytuł</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Treść</target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                <source>label.tags</source>
+                <target>Tagi</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                <source>message.empty_list</source>
+                <target>Lista jest pusta.</target>
+            </trans-unit>
+            <trans-unit id="message.record_not_found">
+                <source>message.record_not_found</source>
+                <target>Nie znaleziono rekordu.</target>
+            </trans-unit>
+            <trans-unit id="title.record_list">
+                <source>title.record_list</source>
+                <target>Lista rekordów</target>
+            </trans-unit>
+            <trans-unit id="title.user_list">
+                <source>title.user_list</source>
+                <target>Użytkownicy</target>
+            </trans-unit>
+            <trans-unit id="title.record_view">
+                <source>title.record_view</source>
+                <target>Podgląd rekordu</target>
+            </trans-unit>
+            <trans-unit id="header.record_content">
+                <source>header.record_content</source>
+                <target>Treść:</target>
+            </trans-unit>
+            <trans-unit id="header.record_tags">
+                <source>header.record_tags</source>
+                <target>Tagi:</target>
+            </trans-unit>
+            <trans-unit id="message.record_not_exist">
+                <source>message.record_not_exist</source>
+                <target>Ten rekord nie istnieje.</target>
+            </trans-unit>
+            <trans-unit id="button.action_show">
+                <source>button.action_show</source>
+                <target>Podgląd</target>
+            </trans-unit>
+            <trans-unit id="button.action_create">
+                <source>button.action_create</source>
+                <target>Nowy rekord</target>
+            </trans-unit>
+            <trans-unit id="button.action_edit">
+                <source>button.action_edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="button.action_delete">
+                <source>button.action_delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Powrót do listy</target>
+            </trans-unit>
+            <trans-unit id="title.task_list">
+                <source>title.task_list</source>
+                <target>Nazwa listy</target>
+            </trans-unit>
+            <trans-unit id="title.task_details">
+                <source>title.task_details</source>
+                <target>Zobaczyć szczegóły pytania</target>
+            </trans-unit>
+            <trans-unit id="label.created_at">
+                <source>label.created_at</source>
+                <target>Data utworzenia</target>
+            </trans-unit>
+            <trans-unit id="label.updated_at">
+                <source>label.updated_at</source>
+                <target>Data aktualizacji</target>
+            </trans-unit>
+            <trans-unit id="label_category">
+                <source>label_category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="label_register">
+                <source>label_register</source>
+                <target>Zarejestrować się</target>
+            </trans-unit>
+            <trans-unit id="action_logout">
+                <source>action_logout</source>
+                <target>Wylogować się</target>
+            </trans-unit>
+            <trans-unit id="action_login">
+                <source>action_login</source>
+                <target>Zalogować się</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Zapisać</target>
+            </trans-unit>
+            <trans-unit id="user.action_create">
+                <source>user.action_create</source>
+                <target>Stworzyć nowego użytkownika</target>
+            </trans-unit>
+            <trans-unit id="user.email">
+                <source>user.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="user.password">
+                <source>user.password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="user.action_delete">
+                <source>user.action_delete</source>
+                <target>Usuń użytkownika</target>
+            </trans-unit>
+            <trans-unit id="user.action_edit">
+                <source>user.action_edit</source>
+                <target>Edytować użytkownika</target>
+            </trans-unit>
+            <trans-unit id="user.nickname">
+                <source>user.nickname</source>
+                <target>Nickname</target>
+            </trans-unit>
+            <trans-unit id="user.roles">
+                <source>user.roles</source>
+                <target>Prawa dostępu</target>
+            </trans-unit>
+            <trans-unit id="user.password_repeat">
+                <source>user.password_repeat</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="comment_list">
+                <source>comment_list</source>
+                <target>Komentarze</target>
+            </trans-unit>
+            <trans-unit id="comments.action_delete">
+                <source>comments.action_delete</source>
+                <target>Usuń komentarz</target>
+            </trans-unit>
+            <trans-unit id="action_add_comment">
+                <source>action_add_comment</source>
+                <target>Dodaj komentarz</target>
+            </trans-unit>
+            <trans-unit id="title.category_create">
+                <source>title.category_create</source>
+                <target>Stwórz kategorie</target>
+            </trans-unit>
+            <trans-unit id="label.none">
+                <source>label.none</source>
+                <target>Nie ma wybranej kategorii</target>
+            </trans-unit>
+            <trans-unit id="comments.no_comments">
+                <source>comments.no_comments</source>
+                <target>Nie ma kometarzy</target>
+            </trans-unit>
+            <trans-unit id="label_home">
+                <source>label_home</source>
+                <target>Strona główna</target>
+            </trans-unit>
+            <trans-unit id="action_back_to_list">
+                <source>action_back_to_list</source>
+                <target>Wrócić do strony głównej</target>
+            </trans-unit>
+            <trans-unit id="label_content">
+                <source>label_content</source>
+                <target>Treść komentarza</target>
+            </trans-unit>
+            <trans-unit id="action_back_to_task">
+                <source>action_back_to_task</source>
+                <target>Wrócić do pytania</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

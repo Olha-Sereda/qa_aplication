@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.task_details'|trans({'%id%': task.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.task_details'|trans({'%id%': task.id|default('')}) }}</h1>
+    {% if task is defined and task|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ task.id }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ task.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ task.updatedAt|format_date('long') }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{  task.title }}</dd>
+            <dt>{{ 'label.category'|trans }}</dt>
+            <dd>{{  task.category.title }}</dd>
+        </dl>
+        <p>
+            <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+
+        <h2>{{ 'comment_list'|trans }}: {{ comments|length }}</h2>
+        {% if comments|length > 0 %}
+            {% for comment in comments %}
+            {% if comment is defined and attribute(comment, 'author') is defined and attribute(comment.author, 'nickname') is defined %}
+                <h4>{{ comment.author.nickname }}</h4>
+            {% else %}
+                <h4>Unregistered user: {{ comment.nickname }}</h4>
+            {% endif %}
+                
+                <small>
+                    {{ comment.createdAt|format_datetime('medium', 'short') }}
+                </small>
+                <p>{{ comment.content }}</p>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <hr>
+                    <a href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'comments.action_delete'|trans }}">
+                        {{ 'comments.action_delete'|trans }}
+                    </a>
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div>{{ 'comments.no_comments'|trans }}</div>
+        {% endif %}
+        <p class="button">
+            <a href="{{ url('task_comment', {id: task.id}) }}" title="{{ 'action_add_comment'|trans }}">
+                {{ 'action_add_comment'|trans }}
+            </a>
+        </p>
+
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

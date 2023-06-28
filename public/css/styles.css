@@ -1,0 +1,67 @@
+.table {
+    border: solid black 2px;
+    background-color: white;
+}
+
+html {
+    background-color: #82e9ec;
+}
+
+body {
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 40px 20px 20px 20px;
+    width: 1350px;
+    border: 4px solid white;
+}
+
+h1 {
+    color: black;
+    background-color: whitesmoke;
+    border: solid #9901ff 4px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.buttons {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.login {
+    color: white;
+}
+
+.col-form-label {
+    color: rgb(0, 0, 0);
+}
+
+.navbar {
+    padding: 15px 20px 15px 20px;
+}
+
+.floatRight {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nowrapText {
+    white-space: nowrap;
+}
+
+.dl-horizontal {
+    background-color: whitesmoke;
+    padding: 40px 20px 20px 20px;
+}
+
+.row {
+    color: whitesmoke;
+}

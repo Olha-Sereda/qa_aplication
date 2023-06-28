@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'QA application' }}
+{% endblock %}
+
+{% block body %}
+
+<div><p>Witaj w QA application</p></div>
+    {% if is_granted('ROLE_ADMIN') %}
+    {% endif %}
+    {% if is_granted('ROLE_USER') %}
+    {% endif %}
+{% endblock %}
