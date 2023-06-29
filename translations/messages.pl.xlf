@@ -202,6 +202,66 @@
                 <source>button.action_best_answer</source>
                 <target>Najlepsza odpowiedź</target>
             </trans-unit>
+             <trans-unit id="comments.best_answer">
+                <source>comments.best_answer</source>
+                <target>To jest najlepsza odpowiedź do tego pytania ⭐</target>
+            </trans-unit>
+            <trans-unit id="delete_confirm">
+                <source>delete_confirm</source>
+                <target>Podwierdz usuwanie</target>
+            </trans-unit>
+            <trans-unit id="title_comment_delete">
+                <source>title_comment_delete</source>
+                <target>Usuń odpowiedź</target>
+            </trans-unit>
+            <trans-unit id="title.category_edit">
+                <source>title.category_edit</source>
+                <target>Edytuj kategorie</target>
+            </trans-unit>
+            <trans-unit id="title.task_delete">
+                <source>title.task_delete</source>
+                <target>Usuń pytanie</target>
+            </trans-unit>
+            <trans-unit id="title.category_delete">
+                <source>title.category_delete</source>
+                <target>Usuń tag</target>
+            </trans-unit>
+            <trans-unit id="message.created_successfully">
+                <source>message.created_successfully</source>
+                <target>Utworzono pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="message.category_contains_tasks">
+                <source>message.category_contains_tasks</source>
+                <target>Kategoria zawiera pytania</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                <source>message.deleted_successfully</source>
+                <target>Usunięte pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="message.edited_successfully">
+                <source>message.edited_successfully</source>
+                <target>Zedytowane pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="task.no_task">
+                <source>task.no_task</source>
+                <target>Nie ma pytań</target>
+            </trans-unit>
+            <trans-unit id="title.confirm_best_answer">
+                <source>title.confirm_best_answer</source>
+                <target>Podtwierdz najlepszą odpowiedź</target>
+            </trans-unit>
+            <trans-unit id="message.form_error">
+                <source>message.form_error</source>
+                <target>Błąd formy</target>
+            </trans-unit>
+            <trans-unit id="title.tag_details">
+                <source>title.tag_details</source>
+                <target>Szczegóły tagu</target>
+            </trans-unit>
+            <trans-unit id="label.user">
+                <source>label.user</source>
+                <target>Użytkownik</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

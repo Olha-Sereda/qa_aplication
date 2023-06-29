@@ -126,7 +126,7 @@
                 <source>user.action_edit</source>
                 <target>Edit user</target>
             </trans-unit>
-            <trans-unit id="user.nickname">
+            <trans-unit id=" ">
                 <source>user.nickname</source>
                 <target>Nickname</target>
             </trans-unit>
@@ -193,6 +193,74 @@
             <trans-unit id="button.action_best_answer">
                 <source>button.action_best_answer</source>
                 <target>Best answer</target>
+            </trans-unit>
+            <trans-unit id="comments.best_answer">
+                <source>comments.best_answer</source>
+                <target>This is the best answer to this question ⭐</target>
+            </trans-unit>
+            <trans-unit id="delete_confirm">
+                <source>delete_confirm</source>
+                <target>Confirm delete</target>
+            </trans-unit>
+            <trans-unit id="title_comment_delete">
+                <source>title_comment_delete</source>
+                <target>Delete answer</target>
+            </trans-unit>
+            <trans-unit id="title.category_edit">
+                <source>title.category_edit</source>
+                <target>Edit category</target>
+            </trans-unit>
+            <trans-unit id="title.task_delete">
+                <source>title.task_delete</source>
+                <target>Delete question</target>
+            </trans-unit>
+            <trans-unit id="title.category_delete">
+                <source>title.category_delete</source>
+                <target>Delete tag</target>
+            </trans-unit>
+            <trans-unit id="message.created_successfully">
+                <source>message.created_successfully</source>
+                <target>Created successfully</target>
+            </trans-unit>
+            <trans-unit id="message.category_contains_tasks">
+                <source>message.category_contains_tasks</source>
+                <target>Category contains questions</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                <source>message.deleted_successfully</source>
+                <target>Deleted successfully</target>
+            </trans-unit>
+            <trans-unit id="message.edited_successfully">
+                <source>message.edited_successfully</source>
+                <target>Edited successfully</target>
+            </trans-unit>
+            <trans-unit id="task.no_task">
+                <source>task.no_task</source>
+                <target>No questions</target>
+            </trans-unit>
+            <trans-unit id="title.confirm_best_answer">
+                <source>title.confirm_best_answer</source>
+                <target>Confirm best answer</target>
+            </trans-unit>
+            <trans-unit id="message.form_error">
+                <source>message.form_error</source>
+                <target>Form error</target>
+            </trans-unit>
+            <trans-unit id="title.tag_details">
+                <source>title.tag_details</source>
+                <target>Tag details</target>
+            </trans-unit>
+            <trans-unit id="label.user">
+                <source>label.user</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Back to list</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Category</target>
             </trans-unit>
         </body>
     </file>
