@@ -25,4 +25,4 @@ enum UserRole: string
             UserRole::ROLE_ADMIN => 'label.role_admin'
         };
     }
-};
+}

@@ -32,7 +32,7 @@
             </trans-unit>
             <trans-unit id="title.record_list">
                 <source>title.record_list</source>
-                <target>Lista rekordów</target>
+                <target>Lista pytań</target>
             </trans-unit>
             <trans-unit id="title.user_list">
                 <source>title.user_list</source>
@@ -148,15 +148,15 @@
             </trans-unit>
             <trans-unit id="comment_list">
                 <source>comment_list</source>
-                <target>Komentarze</target>
+                <target>Odpowiedzi </target>
             </trans-unit>
             <trans-unit id="comments.action_delete">
                 <source>comments.action_delete</source>
-                <target>Usuń komentarz</target>
+                <target>Usuń odpowiedź</target>
             </trans-unit>
             <trans-unit id="action_add_comment">
                 <source>action_add_comment</source>
-                <target>Dodaj komentarz</target>
+                <target>Dodaj odpowiedź</target>
             </trans-unit>
             <trans-unit id="title.category_create">
                 <source>title.category_create</source>
@@ -168,7 +168,7 @@
             </trans-unit>
             <trans-unit id="comments.no_comments">
                 <source>comments.no_comments</source>
-                <target>Nie ma kometarzy</target>
+                <target>Nie ma odpowiedzi</target>
             </trans-unit>
             <trans-unit id="label_home">
                 <source>label_home</source>
@@ -180,7 +180,7 @@
             </trans-unit>
             <trans-unit id="label_content">
                 <source>label_content</source>
-                <target>Treść komentarza</target>
+                <target>Treść odpowiedzi</target>
             </trans-unit>
             <trans-unit id="action_back_to_task">
                 <source>action_back_to_task</source>
@@ -189,6 +189,18 @@
             <trans-unit id="action.edit">
                 <source>action.edit</source>
                 <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="title.category_list">
+                <source>title.category_list</source>
+                <target>Lista kategorii</target>
+            </trans-unit>
+            <trans-unit id="title.category_details">
+                <source>title.category_details</source>
+                <target>Szczegóły kategorii</target>
+            </trans-unit>
+            <trans-unit id="button.action_best_answer">
+                <source>button.action_best_answer</source>
+                <target>Najlepsza odpowiedź</target>
             </trans-unit>
         </body>
     </file>

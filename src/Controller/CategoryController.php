@@ -152,7 +152,7 @@
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($category);
+            //dd($category);
             $this->categoryService->save($category);
 
             $this->addFlash(
