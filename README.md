@@ -20,3 +20,21 @@ opcache.enable_cli=On
 
 7. Load test data:
    symfony console doctrine:fixtures:load
+
+8. in qa_appliation/public create .htaccess file with next content:
+   <IfModule mod_rewrite.c>
+   Options -MultiViews
+   RewriteEngine On
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteRule ^(.\*)$ index.php [QSA,L]
+   </IfModule>
+
+   <IfModule !mod_rewrite.c>
+   <IfModule mod_alias.c>
+   RedirectMatch 302 ^/$ /index.php/
+   </IfModule>
+   </IfModule>
+
+9. Create symlink in public_html/qa_appliation/ to qa_appliation/public
+
+Done!
