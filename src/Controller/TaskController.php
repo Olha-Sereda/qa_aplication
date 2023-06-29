@@ -86,7 +86,8 @@ class TaskController extends AbstractController
        //show comments in task with sorting by bestAnswer and date of create
         return $this->render('task/show.html.twig', 
             ['task' => $task, 
-            'comments' => $commentService->findBy(['task' => $task],["bestAnswer"=>"DESC","createdAt"=>"DESC"])
+            'comments' => $commentService->findBy(['task' => $task],["bestAnswer"=>"DESC","createdAt"=>"DESC"]),
+            'userid' => $this->getUser()
         ]);
     }
 

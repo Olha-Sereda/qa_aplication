@@ -18,6 +18,8 @@
             <dd>{{  task.title }}</dd>
             <dt>{{ 'label.category'|trans }}</dt>
             <dd>{{  task.category.title }}</dd>
+            <dt>{{ 'user.nickname'|trans }}</dt>
+            <dd>{{  task.author.nickname }}</dd>
         </dl>
         <p>
             <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}">
@@ -46,7 +48,8 @@
                     <a class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'comments.action_delete'|trans }}">
                         {{ 'comments.action_delete'|trans }}
                     </a>
-                    
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') or task.author == userid %}
                     <a class="btn btn-outline-success" href="{{ url('comment_best_answer', {id: comment.id}) }}" title="{{ 'button.action_best_answer'|trans }}">
                         {{ 'button.action_best_answer'|trans }}
                     </a>
