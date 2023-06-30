@@ -50,6 +50,7 @@
       * Constructor.
       *
       * @param CategoryServiceInterface $categoryService Category service
+      * @param QuestionServiceInterface $questionService Question service
       * @param TranslatorInterface      $translator  Translator
       */
      public function __construct(CategoryServiceInterface $categoryService, QuestionServiceInterface $questionService, TranslatorInterface $translator)
@@ -80,6 +81,7 @@
      * Show action.
      *
      * @param Category $category Category
+     * @param Request $request HTTP Request
      *
      * @return Response HTTP response
      */

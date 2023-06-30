@@ -75,6 +75,7 @@ class QuestionController extends AbstractController
      * Show action.
      *
      * @param Question $question Question entity
+     * @param AnswerService $answerService 
      *
      * @return Response HTTP response
      */

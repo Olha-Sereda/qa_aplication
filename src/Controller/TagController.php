@@ -37,8 +37,11 @@ class TagController extends AbstractController
      */
     private TranslatorInterface $translator;
 
-    /**
+   /**
      * Constructor.
+     * @param TagServiceInterface $tagService service
+     * @param QuestionServiceInterface $questionService Question service
+     * @param TranslatorInterface  $translator  Translator
      */
     public function __construct(TagServiceInterface $tagService, QuestionServiceInterface $questionService, TranslatorInterface $translatorInterface)
     {
@@ -68,6 +71,7 @@ class TagController extends AbstractController
      * Show action.
      *
      * @param Tag $tag Tag
+     * @param Request $request HTTP Request
      *
      * @return Response HTTP response
      */
