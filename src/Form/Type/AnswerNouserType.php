@@ -1,21 +1,26 @@
 <?php
 /**
- * Comment type.
+ * AnswerNouser type.
  */
 
 namespace App\Form\Type;
 
-use App\Entity\Comment;
+use App\Entity\User;
+use App\Entity\Answer;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * Class CommentType.
+ * Class AnswerNouserType.
  */
-class CommentType extends AbstractType
+class AnswerNouserType extends AbstractType
 {
+
     /**
      * Builds the form.
      *
@@ -29,12 +34,35 @@ class CommentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        //$user = $this->security->getUser();
-
-        //$builder->add('email', $user ? HiddenType::class : TextType::class, ['data' => $user ? $user->getEmail() : '']);
-        //$builder->add('nickname', $user ? HiddenType::class : TextType::class, ['data' => $user ? $user->getNickname() : '']);
-        //$builder->add('message');
-
+       
+        $builder->add(
+            'email',
+            EmailType::class,
+            [
+                'label' => 'user.email',
+                'required' => true,
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['min' => 3, 'max' => 180]),
+                    ],
+            ]
+        );
+        $builder ->add(
+                'nickname',
+                TextType::class,
+                [
+                    'label' => 'user.nickname',
+                    'required' => true,
+                    'constraints' => [
+                        new Length(['min' => 3, 'max' => 16]),
+                        new NotBlank(),
+                    ] ,
+                    'attr' => [
+                        'minlength' => 3,
+                        'maxlength' => 16,
+                    ],
+                ]
+        );
         $builder->add(
             'content',
             TextType::class,
@@ -44,9 +72,10 @@ class CommentType extends AbstractType
                 'attr' => ['max_length' => 255],
             ]
         );
+
+        
+        
     }
-
-
 
     /**
      * Configures the options for this type.
@@ -55,7 +84,7 @@ class CommentType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(['data_class' => Comment::class]);
+        $resolver->setDefaults(['data_class' => Answer::class]);
     }
 
     /**
@@ -68,6 +97,6 @@ class CommentType extends AbstractType
      */
     public function getBlockPrefix(): string
     {
-        return 'comment';
+        return 'answer';
     }
 }

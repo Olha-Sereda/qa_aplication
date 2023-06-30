@@ -10,12 +10,12 @@
 
  namespace App\Controller;
 
- use App\Service\TaskService;
- use App\Repository\TaskRepository;
+ use App\Service\QuestionService;
+ use App\Repository\QuestionRepository;
  use App\Entity\Category;
  use App\Form\Type\CategoryType;
  use App\Service\CategoryServiceInterface;
- use App\Service\TaskServiceInterface;
+ use App\Service\QuestionServiceInterface;
  use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  use Symfony\Component\HttpFoundation\Request;
  use Symfony\Component\HttpFoundation\Response;
@@ -35,9 +35,9 @@
      private CategoryServiceInterface $categoryService;
 
      /**
-      * Task service.
+      * Question service.
       */
-      private TaskServiceInterface $taskService;
+      private QuestionServiceInterface $questionService;
  
      /**
       * Translator.
@@ -49,13 +49,13 @@
      /**
       * Constructor.
       *
-      * @param CategoryServiceInterface $taskService Task service
+      * @param CategoryServiceInterface $categoryService Category service
       * @param TranslatorInterface      $translator  Translator
       */
-     public function __construct(CategoryServiceInterface $categoryService, TaskServiceInterface $taskService, TranslatorInterface $translator)
+     public function __construct(CategoryServiceInterface $categoryService, QuestionServiceInterface $questionService, TranslatorInterface $translator)
      {
          $this->categoryService = $categoryService;
-         $this->taskService = $taskService;
+         $this->questionService = $questionService;
          $this->translator = $translator;
      }
 
@@ -87,7 +87,7 @@
     public function show(Category $category, Request $request): Response
     {   
 
-          $pagination = $this->taskService->getPaginatedListByCategory(
+          $pagination = $this->questionService->getPaginatedListByCategory(
             $request->query->getInt('page', 1),
             $category,
         );
@@ -187,7 +187,7 @@
         if(!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
-                $this->translator->trans('message.category_contains_tasks')
+                $this->translator->trans('message.category_contains_questions')
             );
 
             return $this->redirectToRoute('category_index');

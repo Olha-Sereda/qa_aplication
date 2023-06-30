@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.question_details'|trans({'%id%': question.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.question_details'|trans({'%id%': question.id|default('')}) }}</h1>
+    {% if question is defined and question|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ question.id }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ question.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ question.updatedAt|format_date('long') }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{  question.title }}</dd>
+            <dt>{{ 'label.category'|trans }}</dt>
+            <dd>{{  question.category.title }}</dd>
+            <dt>{{ 'user.nickname'|trans }}</dt>
+            <dd>{{  question.author.nickname }}</dd>
+        </dl>
+        <p>
+            <a href="{{ url('question_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+
+        <h2>{{ 'answer_list'|trans }}: {{ answers|length }}</h2>
+        {% if answers|length > 0 %}
+            {% for answer in answers %}
+            {% if answer is defined and attribute(answer, 'author') is defined and attribute(answer.author, 'nickname') is defined %}
+                <h4>{{ answer.author.nickname }}</h4>
+            {% else %}
+                <h4>Unregistered user: {{ answer.nickname }}</h4>
+            {% endif %}
+                
+                <small>
+                    {{ answer.createdAt|format_datetime('medium', 'short') }}
+                </small>
+                <p>{{ answer.content }}</p>
+                {% if answer.bestanswer is not null %}
+                    {{ 'answers.best_answer'|trans }}
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <hr>
+                    <a class="btn btn-outline-danger" href="{{ url('answer_delete', {id: answer.id}) }}" title="{{ 'answers.action_delete'|trans }}">
+                        {{ 'answers.action_delete'|trans }}
+                    </a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') or question.author == userid %}
+                    <a class="btn btn-outline-success" href="{{ url('answer_best_answer', {id: answer.id}) }}" title="{{ 'button.action_best_answer'|trans }}">
+                        {{ 'button.action_best_answer'|trans }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div>{{ 'answers.no_answers'|trans }}</div>
+        {% endif %}
+        <p class="button">
+            <a href="{{ url('question_answer', {id: question.id}) }}" title="{{ 'action_add_answer'|trans }}">
+                {{ 'action_add_answer'|trans }}
+            </a>
+        </p>
+
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

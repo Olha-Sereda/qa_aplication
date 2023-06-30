@@ -1,28 +1,28 @@
 <?php
 /**
- * Task service.
+ * Question service.
  */
 
 namespace App\Service;
 
 use App\Entity\Tag;
-use App\Entity\Task;
+use App\Entity\Question;
 use App\Entity\User;
 use App\Entity\Category;
-use App\Repository\TaskRepository;
+use App\Repository\QuestionRepository;
 use App\Repository\CategoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
- * Class TaskService.
+ * Class QuestionService.
  */
-class TaskService implements TaskServiceInterface
+class QuestionService implements QuestionServiceInterface
 {
     /**
-     * Task repository.
+     * Question repository.
      */
-    private TaskRepository $taskRepository;
+    private QuestionRepository $questionRepository;
 
     /**
      * Paginator.
@@ -32,12 +32,12 @@ class TaskService implements TaskServiceInterface
     /**
      * Constructor.
      *
-     * @param TaskRepository     $taskRepository Task repository
+     * @param QuestionRepository     $questionRepository Question repository
      * @param PaginatorInterface $paginator      Paginator
      */
-    public function __construct(TaskRepository $taskRepository, PaginatorInterface $paginator)
+    public function __construct(QuestionRepository $questionRepository, PaginatorInterface $paginator)
     {
-        $this->taskRepository = $taskRepository;
+        $this->questionRepository = $questionRepository;
         $this->paginator = $paginator;
     }
 
@@ -51,9 +51,9 @@ class TaskService implements TaskServiceInterface
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->taskRepository->queryAll(),
+            $this->questionRepository->queryAll(),
             $page,
-            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+            QuestionRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -68,9 +68,9 @@ class TaskService implements TaskServiceInterface
     public function getPaginatedListByAuthor(int $page, User $author): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->taskRepository->queryByAuthor($author),
+            $this->questionRepository->queryByAuthor($author),
             $page,
-            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+            QuestionRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -83,12 +83,12 @@ class TaskService implements TaskServiceInterface
      */
     public function getPaginatedListByCategory(int $page, Category $category): PaginationInterface {
 
-        //dd($this->taskRepository->findBy(["category" => $category]));
+        //dd($this->questionRepository->findBy(["category" => $category]));
         
         return $this->paginator->paginate(
-            $this->taskRepository->queryByCategory($category),
+            $this->questionRepository->queryByCategory($category),
             $page,
-            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+            QuestionRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -101,12 +101,12 @@ class TaskService implements TaskServiceInterface
      */
     public function getPaginatedListByTag(int $page, Tag $tag): PaginationInterface {
 
-        //dd($this->taskRepository->findBy(["tag" => $tag]));
+        //dd($this->questionRepository->findBy(["tag" => $tag]));
         
         return $this->paginator->paginate(
-            $this->taskRepository->queryByTag($tag),
+            $this->questionRepository->queryByTag($tag),
             $page,
-            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+            QuestionRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -118,21 +118,21 @@ class TaskService implements TaskServiceInterface
     /**
      * Save entity.
      *
-     * @param Task $category Category entity
+     * @param Question $category Category entity
      */
-    public function save(Task $task): void
+    public function save(Question $question): void
     {
-        $this->taskRepository->save($task);
+        $this->questionRepository->save($question);
     }
 
     /**
      * Delete entity.
      *
-     * @param Task $task Task entity
+     * @param Question $question Question entity
      */
-    public function delete(Task $task): void
+    public function delete(Question $question): void
     {
-        $this->taskRepository->delete($task);
+        $this->questionRepository->delete($question);
     }
     
 

@@ -66,12 +66,12 @@
                 <source>label.updated_at</source>
                 <target>Date of the last update</target>
             </trans-unit>
-            <trans-unit id="title.task_list">
-                <source>title.task_list</source>
+            <trans-unit id="title.question_list">
+                <source>title.question_list</source>
                 <target>Title of the question</target>
             </trans-unit>
-            <trans-unit id="title.task_details">
-                <source>title.task_details</source>
+            <trans-unit id="title.question_details">
+                <source>title.question_details</source>
                 <target>See question details</target>
             </trans-unit>
             <trans-unit id="label_category">
@@ -138,16 +138,16 @@
                 <source>user.password_repeat</source>
                 <target>Repeat password</target>
             </trans-unit>
-            <trans-unit id="comment_list">
-                <source>comment_list</source>
+            <trans-unit id="answer_list">
+                <source>answer_list</source>
                 <target>Anwers</target>
             </trans-unit>
-            <trans-unit id="comments.action_delete">
-                <source>comments.action_delete</source>
+            <trans-unit id="answers.action_delete">
+                <source>answers.action_delete</source>
                 <target>Delete answer</target>
             </trans-unit>
-            <trans-unit id="action_add_comment">
-                <source>action_add_comment</source>
+            <trans-unit id="action_add_answer">
+                <source>action_add_answer</source>
                 <target>Add answer</target>
             </trans-unit>
             <trans-unit id="title.category_create">
@@ -158,9 +158,9 @@
                 <source>label.none</source>
                 <target>No chosen category</target>
             </trans-unit>
-            <trans-unit id="comments.no_comments">
-                <source>comments.no_comments</source>
-                <target>No comments</target>
+            <trans-unit id="answers.no_answers">
+                <source>answers.no_answers</source>
+                <target>No answers</target>
             </trans-unit>
             <trans-unit id="label_home">
                 <source>label_home</source>
@@ -172,10 +172,10 @@
             </trans-unit>
             <trans-unit id="label_content">
                 <source>label_content</source>
-                <target>Comment content</target>
+                <target>Answer content</target>
             </trans-unit>
-            <trans-unit id="action_back_to_task">
-                <source>action_back_to_task</source>
+            <trans-unit id="action_back_to_question">
+                <source>action_back_to_question</source>
                 <target>Go back to question</target>
             </trans-unit>
             <trans-unit id="action.edit">
@@ -194,24 +194,24 @@
                 <source>button.action_best_answer</source>
                 <target>Best answer</target>
             </trans-unit>
-            <trans-unit id="comments.best_answer">
-                <source>comments.best_answer</source>
+            <trans-unit id="answers.best_answer">
+                <source>answers.best_answer</source>
                 <target>This is the best answer to this question ⭐</target>
             </trans-unit>
             <trans-unit id="delete_confirm">
                 <source>delete_confirm</source>
                 <target>Confirm delete</target>
             </trans-unit>
-            <trans-unit id="title_comment_delete">
-                <source>title_comment_delete</source>
+            <trans-unit id="title_answer_delete">
+                <source>title_answer_delete</source>
                 <target>Delete answer</target>
             </trans-unit>
             <trans-unit id="title.category_edit">
                 <source>title.category_edit</source>
                 <target>Edit category</target>
             </trans-unit>
-            <trans-unit id="title.task_delete">
-                <source>title.task_delete</source>
+            <trans-unit id="title.question_delete">
+                <source>title.question_delete</source>
                 <target>Delete question</target>
             </trans-unit>
             <trans-unit id="title.category_delete">
@@ -222,8 +222,8 @@
                 <source>message.created_successfully</source>
                 <target>Created successfully</target>
             </trans-unit>
-            <trans-unit id="message.category_contains_tasks">
-                <source>message.category_contains_tasks</source>
+            <trans-unit id="message.category_contains_questions">
+                <source>message.category_contains_questions</source>
                 <target>Category contains questions</target>
             </trans-unit>
             <trans-unit id="message.deleted_successfully">
@@ -234,8 +234,8 @@
                 <source>message.edited_successfully</source>
                 <target>Edited successfully</target>
             </trans-unit>
-            <trans-unit id="task.no_task">
-                <source>task.no_task</source>
+            <trans-unit id="question.no_question">
+                <source>question.no_question</source>
                 <target>No questions</target>
             </trans-unit>
             <trans-unit id="title.confirm_best_answer">

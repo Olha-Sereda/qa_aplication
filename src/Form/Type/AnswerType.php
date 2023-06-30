@@ -1,26 +1,21 @@
 <?php
 /**
- * CommentNouser type.
+ * Answer type.
  */
 
 namespace App\Form\Type;
 
-use App\Entity\User;
-use App\Entity\Comment;
+use App\Entity\Answer;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * Class CommentNouserType.
+ * Class AnswerType.
  */
-class CommentNouserType extends AbstractType
+class AnswerType extends AbstractType
 {
-
     /**
      * Builds the form.
      *
@@ -34,35 +29,12 @@ class CommentNouserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-       
-        $builder->add(
-            'email',
-            EmailType::class,
-            [
-                'label' => 'user.email',
-                'required' => true,
-                'constraints' => [
-                    new NotBlank(),
-                    new Length(['min' => 3, 'max' => 180]),
-                    ],
-            ]
-        );
-        $builder ->add(
-                'nickname',
-                TextType::class,
-                [
-                    'label' => 'user.nickname',
-                    'required' => true,
-                    'constraints' => [
-                        new Length(['min' => 3, 'max' => 16]),
-                        new NotBlank(),
-                    ] ,
-                    'attr' => [
-                        'minlength' => 3,
-                        'maxlength' => 16,
-                    ],
-                ]
-        );
+        //$user = $this->security->getUser();
+
+        //$builder->add('email', $user ? HiddenType::class : TextType::class, ['data' => $user ? $user->getEmail() : '']);
+        //$builder->add('nickname', $user ? HiddenType::class : TextType::class, ['data' => $user ? $user->getNickname() : '']);
+        //$builder->add('message');
+
         $builder->add(
             'content',
             TextType::class,
@@ -72,10 +44,9 @@ class CommentNouserType extends AbstractType
                 'attr' => ['max_length' => 255],
             ]
         );
-
-        
-        
     }
+
+
 
     /**
      * Configures the options for this type.
@@ -84,7 +55,7 @@ class CommentNouserType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(['data_class' => Comment::class]);
+        $resolver->setDefaults(['data_class' => Answer::class]);
     }
 
     /**
@@ -97,6 +68,6 @@ class CommentNouserType extends AbstractType
      */
     public function getBlockPrefix(): string
     {
-        return 'comment';
+        return 'answer';
     }
 }

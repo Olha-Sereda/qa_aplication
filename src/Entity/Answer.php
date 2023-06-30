@@ -1,18 +1,18 @@
 <?php
 /**
- * Comment Entity.
+ * Answer Entity.
  */
 
 namespace App\Entity;
 
-use App\Repository\CommentRepository;
+use App\Repository\AnswerRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: CommentRepository::class)]
-#[ORM\Table(name: "comments")]
-class Comment
+#[ORM\Entity(repositoryClass: AnswerRepository::class)]
+#[ORM\Table(name: "answers")]
+class Answer
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,9 +31,9 @@ class Comment
     #[ORM\JoinColumn(nullable: true)]
     private $author;
 
-    #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'comments', fetch: 'EXTRA_LAZY')]
+    #[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'answers', fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
-    private $task;
+    private $question;
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\Type(type: 'string')]
@@ -123,23 +123,23 @@ class Comment
     }
 
     /**
-     * Getter for task.
+     * Getter for question.
      *
-     * @return \App\Entity\Task|null Task
+     * @return \App\Entity\Question|null Question
      */
-    public function getTask(): ?Task
+    public function getQuestion(): ?Question
     {
-        return $this->task;
+        return $this->question;
     }
 
     /**
-     * Setter for task.
+     * Setter for question.
      *
-     * @param \App\Entity\Task|null $task Task
+     * @param \App\Entity\Question|null $question Question
      */
-    public function setTask(?Task $task): void
+    public function setQuestion(?Question $question): void
     {
-        $this->task = $task;
+        $this->question = $question;
     }
 
     /**

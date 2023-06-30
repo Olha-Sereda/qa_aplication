@@ -1,22 +1,22 @@
 <?php
 /**
- * Comment repository.
+ * Answer repository.
  */
 
 namespace App\Repository;
 
-use App\Entity\Comment;
+use App\Entity\Answer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Comment|null find($id, $lockMode = null, $lockVersion = null)
- * @method Comment|null findOneBy(array $criteria, array $orderBy = null)
- * @method Comment[]    findAll()
- * @method Comment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Answer|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Answer|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Answer[]    findAll()
+ * @method Answer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CommentRepository extends ServiceEntityRepository
+class AnswerRepository extends ServiceEntityRepository
 {
     /**
      * Items per page.
@@ -36,7 +36,7 @@ class CommentRepository extends ServiceEntityRepository
      */
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Comment::class);
+        parent::__construct($registry, Answer::class);
     }
 
     /**
@@ -47,34 +47,34 @@ class CommentRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->orderBy('comment.updatedAt', 'DESC');
+            ->orderBy('answer.updatedAt', 'DESC');
     }
 
     /**
      * Save record.
      *
-     * @param \App\Entity\Comment $comment Comment entity
+     * @param \App\Entity\Answer $answer Answer entity
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(Comment $comment): void
+    public function save(Answer $answer): void
     {
-        $this->_em->persist($comment);
+        $this->_em->persist($answer);
         $this->_em->flush();
     }
 
     /**
      * Delete record.
      *
-     * @param \App\Entity\Comment $comment Comment entity
+     * @param \App\Entity\Answer $answer Answer entity
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function delete(Comment $comment): void
+    public function delete(Answer $answer): void
     {
-        $this->_em->remove($comment);
+        $this->_em->remove($answer);
         $this->_em->flush();
     }
 
@@ -87,6 +87,6 @@ class CommentRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('comment');
+        return $queryBuilder ?? $this->createQueryBuilder('answer');
     }
 }

@@ -8,7 +8,7 @@ namespace App\Controller;
 use App\Entity\Tag;
 use App\Form\Type\TagType;
 use App\Service\TagServiceInterface;
-use App\Service\TaskServiceInterface;
+use App\Service\QuestionServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,9 +28,9 @@ class TagController extends AbstractController
     private TagServiceInterface $tagService;
 
     /**
-     * Task service.
+     * Question service.
      */
-    private TaskServiceInterface $taskService;
+    private QuestionServiceInterface $questionService;
 
     /**
      * Translator.
@@ -40,10 +40,10 @@ class TagController extends AbstractController
     /**
      * Constructor.
      */
-    public function __construct(TagServiceInterface $tagService, TaskServiceInterface $taskService, TranslatorInterface $translatorInterface)
+    public function __construct(TagServiceInterface $tagService, QuestionServiceInterface $questionService, TranslatorInterface $translatorInterface)
     {
         $this->tagService = $tagService;
-        $this->taskService = $taskService;
+        $this->questionService = $questionService;
         $this->translator = $translatorInterface;
     }
 
@@ -75,7 +75,7 @@ class TagController extends AbstractController
     public function show(Tag $tag, Request $request): Response
     {
         
-        $pagination = $this->taskService->getPaginatedListByTag(
+        $pagination = $this->questionService->getPaginatedListByTag(
             $request->query->getInt('page', 1),
             $tag
         );
@@ -173,7 +173,7 @@ class TagController extends AbstractController
 //        if(!$this->tagService->canBeDeleted($tag)) {
 //            $this->addFlash(
 //                'warning',
-//                $this->translator->trans('message.tag_contains_tasks')
+//                $this->translator->trans('message.tag_contains_questions')
 //            );
 //
 //            return $this->redirectToRoute('tag_index');

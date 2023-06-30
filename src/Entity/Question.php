@@ -1,11 +1,11 @@
 <?php
 /**
- * Task entity.
+ * Question entity.
  */
 
 namespace App\Entity;
 
-use App\Repository\TaskRepository;
+use App\Repository\QuestionRepository;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -15,11 +15,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class Task.
+ * Class Question.
  */
-#[ORM\Entity(repositoryClass: TaskRepository::class)]
-#[ORM\Table(name: 'task')]
-class Task
+#[ORM\Entity(repositoryClass: QuestionRepository::class)]
+#[ORM\Table(name: 'question')]
+class Question
 {
     /**
      * Primary key.
@@ -80,7 +80,7 @@ class Task
      */
     #[Assert\Valid]
     #[ORM\ManyToMany(targetEntity: Tag::class, fetch: 'EXTRA_LAZY', orphanRemoval: true)]
-    #[ORM\JoinTable(name: 'tasks_tags')]
+    #[ORM\JoinTable(name: 'questions_tags')]
     private $tags;
 
     /**
@@ -96,8 +96,8 @@ class Task
 
 
     
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: "task", orphanRemoval: true)]
-    private $comments;
+    #[ORM\OneToMany(targetEntity: Answer::class, mappedBy: "question", orphanRemoval: true)]
+    private $answers;
     
     /**
      * Constructor.
@@ -105,7 +105,7 @@ class Task
     public function __construct()
     {
         $this->tags = new ArrayCollection();
-        $this->comment = new ArrayCollection();
+        $this->answer = new ArrayCollection();
     }
 
     /**
@@ -242,27 +242,27 @@ class Task
         //return $this;
     }
 
-    public function getComment(): Collection
+    public function getAnswer(): Collection
     {
-        return $this->comment;
+        return $this->answer;
     }
 
-public function addComment(Comment $comment): self
+public function addAnswer(Answer $answer): self
 {
-    if (!$this->comment->contains($comment)) {
-        $this->comment->add($comment);
-        $comment->setTask($this);
+    if (!$this->answer->contains($answer)) {
+        $this->answer->add($answer);
+        $answer->setQuestion($this);
     }
 
     return $this;
 }
 
-public function removeComment(Comment $comment): self
+public function removeAnswer(Answer $answer): self
 {
-    if ($this->comment->removeElement($comment)) {
+    if ($this->answer->removeElement($answer)) {
         // set the owning side to null (unless already changed)
-        if ($comment->getTask() === $this) {
-            $comment->setTask(null);
+        if ($answer->getQuestion() === $this) {
+            $answer->setQuestion(null);
         }
     }
 

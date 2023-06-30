@@ -18,25 +18,25 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'task.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'task.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'question.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'question.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'question.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'question.title') }}</th>
             </tr>
             </thead>
             <tbody>
-            {% for task in pagination.items %}
+            {% for question in pagination.items %}
                  <tr>
-                    <td>{{ task.id }}</td>
-                    <td>{{ task.createdAt|format_date('long') }}</td>
-                    <td>{{ task.updatedAt|format_date('long') }}</td>
-                    <td>{{ task.title }}</td>
+                    <td>{{ question.id }}</td>
+                    <td>{{ question.createdAt|format_date('long') }}</td>
+                    <td>{{ question.updatedAt|format_date('long') }}</td>
+                    <td>{{ question.title }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
         {% else %}
-            <div>{{ 'task.no_task'|trans }}</div>
+            <div>{{ 'question.no_question'|trans }}</div>
             <h1>Hello</h1>
         {% endif %}
         

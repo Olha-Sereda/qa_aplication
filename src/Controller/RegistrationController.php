@@ -72,7 +72,7 @@ class RegistrationController extends AbstractController
             $this->registrationService->register($data, $user);
             $this->addFlash('success', 'message_registered_successfully');
 
-            //return $this->redirectToRoute('task_index');
+            //return $this->redirectToRoute('question_index');
         }
 
         return $this->render(

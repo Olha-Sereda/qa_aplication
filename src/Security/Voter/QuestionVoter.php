@@ -1,11 +1,11 @@
 <?php
 /**
- * Task voter.
+ * Question voter.
  */
 
 namespace App\Security\Voter;
 
-use App\Entity\Task;
+use App\Entity\Question;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -13,9 +13,9 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class TaskVoter.
+ * Class QuestionVoter.
  */
-class TaskVoter extends Voter
+class QuestionVoter extends Voter
 {
     /**
      * Edit permission.
@@ -66,7 +66,7 @@ class TaskVoter extends Voter
     protected function supports(string $attribute, $subject): bool
     {
         return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE])
-            && $subject instanceof Task;
+            && $subject instanceof Question;
     }
 
     /**
@@ -99,41 +99,41 @@ class TaskVoter extends Voter
     }
 
     /**
-     * Checks if user can edit task.
+     * Checks if user can edit question.
      *
-     * @param Task $task Task entity
+     * @param Question $question Question entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canEdit(Task $task, User $user): bool
+    private function canEdit(Question $question, User $user): bool
     {
-        return $task->getAuthor() === $user;
+        return $question->getAuthor() === $user;
     }
 
     /**
-     * Checks if user can view task.
+     * Checks if user can view question.
      *
-     * @param Task $task Task entity
+     * @param Question $question Question entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canView(Task $task, User $user): bool
+    private function canView(Question $question, User $user): bool
     {
-        return $task->getAuthor() === $user;
+        return $question->getAuthor() === $user;
     }
 
     /**
-     * Checks if user can delete task.
+     * Checks if user can delete question.
      *
-     * @param Task $task Task entity
+     * @param Question $question Question entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canDelete(Task $task, User $user): bool
+    private function canDelete(Question $question, User $user): bool
     {
-        return $task->getAuthor() === $user;
+        return $question->getAuthor() === $user;
     }
 }

@@ -24,7 +24,7 @@
         <div class="navbar-nav nowrapText">
             <a class="nav-item nav-link active" href="{{ url('home') }}">{{ 'label_home'|trans }}</a>
             <a class="nav-item nav-link active" href="{{ url('category_index') }}">{{ 'label_category'|trans }}</a>
-            <a class="nav-item nav-link active" href="{{ url('task_index') }}">{{ 'title.task_list'|trans }}</a>
+            <a class="nav-item nav-link active" href="{{ url('question_index') }}">{{ 'title.question_list'|trans }}</a>
             <a class="nav-link active" href="{{ path('tag_index') }}">Tagi</a>
             {% if is_granted('ROLE_ADMIN') %}
                 <div><a class="nav-item nav-link active" href={{ url('user_index') }}> {{ 'title.user_list'|trans }}</a></div>
