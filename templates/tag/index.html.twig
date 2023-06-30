@@ -35,7 +35,7 @@
                     <a class="btn btn-outline-success" href="{{ path('tag_edit', {'id': tag.id}) }}">{{ 'button.action_edit'|trans }}</a></td>
                     {%  endif %}
                     <td>
-                    {% if is_granted('EDIT', tag) or is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('DELETE', tag) or is_granted('ROLE_ADMIN') %}
                     <a class="btn btn-outline-danger" href="{{ path('tag_delete', {'id': tag.id}) }}">{{ 'button.action_delete'|trans }}
                     {%  endif %}
                     </a></td>
