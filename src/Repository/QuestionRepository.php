@@ -164,9 +164,17 @@ class QuestionRepository extends ServiceEntityRepository
     public function queryByTag(Tag $tag): QueryBuilder
     {
 
-        return $this->createQueryBuilder('c')
-            ->innerJoin('c.tags', 's', 'WITH', 's.id = :tag')
-            ->setParameter('tag', $tag);
+        return $this->getOrCreateQueryBuilder()
+            ->select(
+                'partial question.{id, createdAt, updatedAt, title}',
+                'partial tag.{id, title}'
+            )
+            ->join('question.tags', 'tag')
+            ->orderBy('question.updatedAt', 'DESC');
+
+        // return $this->createQueryBuilder('c')
+        //     ->innerJoin('c.tags', 's', 'WITH', 's.id = :tag')
+        //     ->setParameter('tag', $tag);
 
     }
     
