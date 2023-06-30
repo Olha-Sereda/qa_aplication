@@ -264,7 +264,7 @@
             </trans-unit>
             <trans-unit id="label.user_password">
                 <source>label.user_password</source>
-                <target>Password</target>
+                <target>Hasło</target>
             </trans-unit>
             <trans-unit id="label.login">
                 <source>label.login</source>
