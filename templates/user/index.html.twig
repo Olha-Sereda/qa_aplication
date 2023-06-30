@@ -5,7 +5,9 @@
 {% block body %}
 
     <h1>{{ 'title.user_list'|trans }}</h1>
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('user_create') }}">{{ 'button.action_create'|trans }}</a>
+    {% endif %}
 
     {% if pagination is defined and pagination.items|length %}
         <div class="navigation text-center">
@@ -18,7 +20,7 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'user.email'|trans, 'user.email') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'user.roles'|trans, 'user.roles') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'user.password'|trans, 'user.password') }}</th>
+                <th>{{ 'label.user_password'|trans }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'user.nickname'|trans, 'user.nickname') }}</th>
                 <th>{{ 'label.actions'|trans }}</th>
             </tr>
@@ -33,28 +35,25 @@
                             {{ role }},
                         {% endfor %}
                     </td>
-                    <td>{{ user.password }}</td>
+                    <td>**********</td>
                     <td>{{ user.nickname }}</td>
-                     <td>
-                        <a href="{{ url('user_show', {id: user.id}) }}" title="{{ 'button.action_show'|trans }}" class="btn btn-warning">
-                            {{ 'button.action_show'|trans }}
-                        </a>
-                        <a href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-success">
-                            {{ 'button.action_edit'|trans }}
-                        </a>
-                    </td>
                     <td>
-                        {% if is_granted('VIEW', user) %}
+                        {% if is_granted('VIEW', user)  or is_granted('ROLE_USER') %}
                             <a class="btn btn-outline-primary" href="{{ url('user_show', {id: user.id}) }}" title="{{ 'button.action_show'|trans }}">
                                 {{ 'button.action_show'|trans }}
                             </a>
                         {% endif %}
-                        {% if is_granted('EDIT', user) %}
-                            <a class="btn btn-outline-success" href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'button.action_edit'|trans }}">
-                                {{ 'button.action_edit'|trans }}
+                        {% if is_granted('EDIT', user) or is_granted('ROLE_USER') %}
+                            <a class="btn btn-outline-success" href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'user.button_action_edit'|trans }}">
+                                {{ 'user.button_action_edit'|trans }}
                             </a>
                         {% endif %}
-                        {% if is_granted('DELETE', user) %}
+                        {% if is_granted('EDIT', user) or is_granted('ROLE_USER') %}
+                            <a class="btn btn-outline-success" href="{{ url('user_edit_password', {id: user.id}) }}" title="{{ 'user.button_action_edit_password'|trans }}">
+                                {{ 'user.button_action_edit_password'|trans }}
+                            </a>
+                        {% endif %}
+                        {% if is_granted('DELETE', user) or is_granted('ROLE_ADMIN') %}
                             <a class="btn btn-outline-danger" href="{{ url('user_delete', {id: user.id}) }}" title="{{ 'button.action_delete'|trans }}">
                                 {{ 'button.action_delete'|trans }}
                             </a>

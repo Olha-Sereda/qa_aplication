@@ -1,6 +1,6 @@
 <?php
 /**
- * User type.
+ * Password type.
  */
 
 namespace App\Form\Type;
@@ -14,7 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Class UserType.
  */
-class UserType extends AbstractType
+class PasswordType extends AbstractType
 {
 
     /**
@@ -30,13 +30,14 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        
         $builder->add(
-            'email',
+            'password',
             TextType::class,
             [
-                'label' => 'user.email',
-                'required' => true,
-                'attr' => ['max_length' => 255],
+                'label' => 'user.password',
+                'required' => false,
+                'attr' => ['max_length' => 128],
             ]
         );
     }

@@ -55,7 +55,8 @@ class QuestionController extends AbstractController
      * @return Response HTTP response
      */
     #[Route(name: 'question_index', methods: 'GET')]
-    #[IsGranted('VIEW', subject: 'question')]
+    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_USER')]
     public function index(Request $request): Response
     {
         // $pagination = $this->questionService->getPaginatedList(
@@ -78,7 +79,8 @@ class QuestionController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}', name: 'question_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET', )]
-    #[IsGranted('VIEW', subject: 'question')]
+    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_USER')]
     public function show(Question $question, AnswerService $answerService): Response
     {
        // dd($answerService->findBy(['question' => $question]));
@@ -99,6 +101,7 @@ class QuestionController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/create', name: 'question_create', methods: 'GET|POST')]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response
     {
         /** @var User $user */

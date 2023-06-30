@@ -24,6 +24,17 @@ interface UserServiceInterface
     public function getPaginatedList(int $page): PaginationInterface;
 
     /**
+     * Get paginated list.
+     *
+     * @param int $page Page number
+     * @param int $userid User ID number
+     *
+     * @return PaginationInterface<string, mixed> Paginated list
+     */
+    public function getPaginatedListByAuthor(int $page, User $user): PaginationInterface;
+
+
+    /**
      * Save entity.
      *
      * @param User $user User entity

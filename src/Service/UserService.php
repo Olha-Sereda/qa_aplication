@@ -56,6 +56,23 @@ class UserService implements UserServiceInterface
     }
 
     /**
+     * Get paginated list by Author.
+     *
+     * @param int $page Page number
+     * @param int $user User entity
+     *
+     * @return PaginationInterface<string, mixed> Paginated list
+     */
+    public function getPaginatedListByAuthor(int $page, User $user): PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->userRepository->queryByAuthor($user),
+            $page,
+            UserRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
+    /**
      * Save entity.
      *
      * @param User $user User entity

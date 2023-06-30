@@ -1,6 +1,8 @@
+{% if is_granted('ROLE_ADMIN') %}
 {% include 'default/_form.html.twig' with {
     page_title: 'user.action_delete'|trans({'%id%': question.id|default('')}),
     form: form,
     submit_label: 'button.action_delete'|trans,
     back_to_list_path: 'question_index',
 } %}
+{% endif %}

@@ -262,6 +262,22 @@
                 <source>label.user</source>
                 <target>Użytkownik</target>
             </trans-unit>
+            <trans-unit id="label.user_password">
+                <source>label.user_password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Zaloguj się</target>
+            </trans-unit>
+            <trans-unit id="user.button_action_edit">
+                <source>user.button_action_edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="user.button_action_edit_password">
+                <source>user.button_action_edit_password</source>
+                <target>Hasło</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
